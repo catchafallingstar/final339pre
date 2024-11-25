@@ -103,7 +103,9 @@ nav {
     /* Ensures it overlays the content */
 
 }
-
+button{
+    background-color: var(--nav-bg);
+}
 nav ul {
 
     flex-direction: row;

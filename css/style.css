@@ -117,7 +117,9 @@ nav {
     z-index: 999;
     /* Ensures it overlays the content */
 }
-
+button{
+    background-color: var(--nav-bg);
+}
 nav ul {
  
     flex-direction: row; /* Horizontal layout for navbar items */

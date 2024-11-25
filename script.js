@@ -50,55 +50,52 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-// icon on main page for mobile version (laptop version the nav bar is sticked at top)
+// Toggle navigation menu visibility
 function toggleNav() {
     var navBar = document.getElementById("nav-bar");
-    navBar.classList.toggle("active");
+    var isActive = navBar.classList.toggle("active");
+
+    // Set aria-expanded for accessibility
+    var menuIcon = document.querySelector(".menu-icon");
+    menuIcon.setAttribute("aria-expanded", isActive);
 }
 
-// Close the navigation bar when a link inside it is clicked, or outside is clicked
-
+// Close the navigation bar when a link is clicked or focus moves outside
 document.addEventListener("DOMContentLoaded", function () {
     var navBar = document.getElementById("nav-bar");
-    var navLinks = document.querySelectorAll('#nav-bar a');
+    var navLinks = document.querySelectorAll("#nav-bar a");
+    var menuIcon = document.querySelector(".menu-icon");
 
+    // Handle link clicks
     navLinks.forEach(function (link) {
-        link.addEventListener('click', function (event) {
-
-
-            var targetId = this.getAttribute('href').substring(1); // Get the ID without '#'
-            var targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                if (window.innerWidth < 1024) {
-                    // Collapse all other content sections
-                    var allContents = document.querySelectorAll('.content');
-                    allContents.forEach(function (content) {
-                        content.style.display = 'none';
-                    });
-                }
-
-
-                // Expand the target content
-                var content = targetElement.querySelector('.content');
-                if (content) {
-                    content.style.display = 'block';
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-
-                // Hide the navigation bar
-                navBar.classList.remove("active");
-            }
+        link.addEventListener("click", function (event) {
+            navBar.classList.remove("active");
+            menuIcon.setAttribute("aria-expanded", false);
         });
     });
+
+    // Handle click outside to close
     document.addEventListener("click", function (event) {
-        if (!navBar.contains(event.target) && !event.target.closest('.menu-icon')) {
+        if (!navBar.contains(event.target) && !event.target.closest(".menu-icon")) {
             navBar.classList.remove("active");
+            menuIcon.setAttribute("aria-expanded", false);
+        }
+    });
+
+    // Handle focus with Tab key
+    navBar.addEventListener("keydown", function (event) {
+        if (event.key === "Tab" && !navBar.contains(event.target)) {
+            navBar.classList.remove("active");
+            menuIcon.setAttribute("aria-expanded", false);
+        }
+    });
+
+    // Toggle menu with Enter or Space keys
+    menuIcon.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleNav();
         }
     });
 });
-
 

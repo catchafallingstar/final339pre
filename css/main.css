@@ -1,9 +1,3 @@
-.nanum-pen-script-regular {
-    font-family: "Nanum Pen Script", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
 :root {
     --color-white: #FFF9F4;
     --color-pale-pink: #FDEDE9;
@@ -20,6 +14,7 @@
     --nav-bg: var(--color-white);
     --footer-bg: var(--color-pale-pink);
     --footer-color: var(--color-rose-gold);
+    --button:var(--color-black);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,6 +26,7 @@
         /* Black navigation bar */
         --footer-bg: var(--color-rose-gold);
         --footer-color: var(--color-soft-gold);
+        --button:var(--color-white);
     }
 }
 
@@ -84,7 +80,7 @@ footer {
     top: 10px;
     left: 10px;
     z-index: 1000;
-    color: var(--text-color);
+    color: var(--button);
 }
 
 /* Navigation Styling */

@@ -1,0 +1,333 @@
+.nanum-pen-script-regular {
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --color-white: #FFF9F4;
+    --color-pale-pink: #FDEDE9;
+    --color-deep-pink: #B88372;
+    --color-soft-gold: #FFD8B2;
+    --color-dark-charcoal: #1C1C1C;
+    --color-rose-gold: #402A28;
+    --color-black: #000000;
+
+    /* Light mode */
+    --bg-color: var(--color-white);
+    --text-color: var(--color-rose-gold);
+    /* Contrasting warm color for light mode */
+    --nav-bg: var(--color-white);
+    --footer-bg: var(--color-pale-pink);
+    --footer-color: var(--color-rose-gold);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: var(--color-dark-charcoal);
+        --text-color: var(--color-soft-gold);
+        /* Warm gold for dark mode */
+        --nav-bg: var(--color-black);
+        /* Black navigation bar */
+        --footer-bg: var(--color-rose-gold);
+        --footer-color: var(--color-soft-gold);
+    }
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    /* background-color: var(--nav-bg); */
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+
+    margin: 0;
+    font-family: monospace, serif;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 20px;
+    font-family: monospace, serif;
+}
+
+section {
+    padding: 0;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* Navigation Styling */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    color: var(--text-color);
+}
+
+/* Navigation Styling */
+nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* Initially hidden to the left */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    transition: left 0.3s;
+    z-index: 999;
+ 
+    /* Ensures it overlays the content */
+
+}
+
+nav ul {
+
+    flex-direction: row;
+    /* Horizontal layout for navbar items */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /* Remove default bullet points */
+    justify-content: center;
+    /* Center items in the navbar */
+    align-items: center;
+    /* Align items vertically */
+    width: 100%;
+    text-align: center;
+}
+
+nav li {
+ 
+    padding: 15px 20px;
+    /* Space between navbar items */
+    margin-top: 20px;
+}
+
+
+nav li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+    display: block;
+    transition: color 0.3s ease;
+    /* Smooth color change on hover */
+    font-family: 'Nanum Pen Script', monospace, serif;
+}
+
+nav li:hover {
+   background-color: #daaea02d;
+    /* Hover color for links */
+}
+
+nav.active {
+    left: 0;
+    /* Show nav when active */
+}
+.grid-item img{
+    height:100%;
+    width: auto;
+    object-fit: contain;
+}
+.default-image,
+.hover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure images fill their container without cropping */
+    transition: opacity 0.3s ease; /* Smooth hover transition */
+}
+
+.hover-image {
+    opacity: 0; /* Hide the hover image initially */
+}
+
+.image-container:hover .hover-image {
+    opacity: 1; /* Show the hover image */
+}
+
+.image-container:hover .default-image {
+    opacity: 0; /* Hide the default image */
+}
+
+
+/* Scale animation */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.995); /* Start smaller */
+        opacity: 0; /* Fully transparent */
+    }
+    to {
+        transform: scale(1); /* Normal size */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Apply the animation to the hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 0; /* Remove padding */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.062); /* Optional: keeps the background visible */
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    object-fit: cover;
+    z-index: -1; /* Ensures the image stays behind content */
+}
+
+.hero h1 {
+    position: absolute;
+    top: 50%; /* Centers the heading vertically */
+    left: 50%; /* Centers the heading horizontally */
+    transform: translate(-50%, -50%); /* Ensures exact centering */
+    font-family: 'Nanum Pen Script', monospace, serif; /* Matches desired style */
+    font-size: 3rem; /* Adjust to desired size */
+    color: white; /* Contrast with the image */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Improves readability */
+    text-align: center;
+    z-index: 1; /* Ensures heading stays above the image */
+    padding: 10px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Maintain a 4:3 aspect ratio */
+    overflow: hidden;
+}
+
+.default-image,
+.hover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fill their container */
+    transition: opacity 0.3s ease; /* Smooth hover transition */
+}
+
+.hover-image {
+    opacity: 0;
+}
+
+.image-container:hover .hover-image {
+    opacity: 1;
+}
+
+.image-container:hover .default-image {
+    opacity: 0;
+}
+
+
+
+
+
+.about-us {
+    padding: 20px; /* Adds space inside the about-us section */
+    margin-top: 20px; /* Adds space between the section and elements above */
+    text-align: center; /* Centers the heading */
+}
+
+.about-us h2 {
+    margin-bottom: 20px; /* Adds space below the "About Us" heading */
+    font-size: 2rem; /* Adjust font size as needed */
+    color: var(--text-color);
+}
+
+
+.logo a{
+    font-size: small;
+    font-style: italic;
+   text-decoration: none;
+   color: var(--color-dark-charcoal);
+
+}
+
+
+/* Responsive Styles */
+@media screen and (min-width: 800px) {
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        padding-top: 0px;
+        padding-left: 5%;
+        padding-right: 5%;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--bg-color);
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    nav li {
+        padding: 15px 20px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 3rem; /* Smaller font size for small screens */
+    }
+}

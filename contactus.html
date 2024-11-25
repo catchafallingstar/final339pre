@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="lightbox2-dev/dist/css/lightbox.css">
+    <title>Nail_art</title>
+    <link rel="icon" type="image/png" href="images/favicon.jpg">
+</head>
+
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleNav()">☰</div>
+        <nav id="nav-bar">
+            <h1 class="logo"><a href="index.html">J&M's nail design</a></h1>
+            <ul>
+                <li><a href="index.html">Home Page</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="paragraph">
+            <h1>Contact Us</h1>
+            <p>
+                We value your feedback. We want to hear your comments, questions, and opinions. <br>
+                Please contact us through the comment box on this page. For collaboration and other inquiries, please
+                call us at (517)730-7221.
+            </p>
+            <br>
+        </section>
+        <div class="contact-container">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+                <input type="hidden" name="access_key" value="236d3844-f829-495f-afa3-030bdabd926c">
+
+                <!-- Label for Name -->
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" class="contact-inputs" required><br>
+
+                <!-- Label for Email -->
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" class="contact-inputs" required><br>
+
+                <!-- Label for Phone Number -->
+                <label for="pnumber">Your Phone Number</label>
+                <input type="tel" id="pnumber" name="pnumber" placeholder="Phone number: (123)456-7890" class="contact-inputs" required>
+                <br>
+
+                <!-- Label for Message -->
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Your message" cols="40" rows="20" class="contact-inputs" required></textarea>
+                <br><br>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit <img src="images/assets/arrow_icon.png" alt=""></button>
+            </form>
+            <div class="contact-right">
+                <img src="images/assets/right_img.png" alt="prettier image">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            J&M's Nail Design<br>
+        <address>
+            500 State St <br>
+            Ann Arbor, MI 48109<br><br>
+        </address>
+        Follow us on Instagram <a href="https://www.instagram.com/nailart3302" aria-label="Instagram"><i
+                class="fa-brands fa-instagram"></i> </a>
+    </footer>
+    <script src="script.js"></script>
+    <script src="lightbox2-dev/dist/js/lightbox-plus-jquery.js"></script>
+</body>
+
+</html>

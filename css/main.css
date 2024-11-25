@@ -173,6 +173,19 @@ nav.active {
 
 .image-container:hover .default-image {
     opacity: 0; /* Hide the default image */
+}       
+/* Add focus style for accessibility */
+.image-container a:focus {
+    outline: 5px solid var(--color-deep-pink); /* Highlight the focused image with a border */
+    outline-offset: 4px; /* Adds spacing between the outline and the image */
+}
+
+.image-container a:focus .default-image {
+    opacity: 0; /* Hide the default image */
+}
+
+.image-container a:focus .hover-image {
+    opacity: 1; /* Show the hover image */
 }
 
 
@@ -289,7 +302,7 @@ nav.active {
     font-size: small;
     font-style: italic;
    text-decoration: none;
-   color: var(--color-dark-charcoal);
+   color: var(--text-color);
 
 }
 

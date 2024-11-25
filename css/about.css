@@ -197,7 +197,7 @@ nav.active {
     font-size: small;
     font-style: italic;
    text-decoration: none;
-   color: var(--color-dark-charcoal);
+   color: var(--text-color);
 
 }
 .grid-container {
@@ -211,7 +211,7 @@ nav.active {
         "text text"; /* Main layout of title and text */
     gap: 20px; /* Spacing between grid items */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Light background for card */
+    background-color: rgb(255, 255, 255, 0.1);
     border-radius: 10px; /* Rounded corners for the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }

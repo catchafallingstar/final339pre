@@ -157,7 +157,7 @@ nav.active {
     font-size: small;
     font-style: italic;
    text-decoration: none;
-   color: var(--color-dark-charcoal);
+   color: var(--text-color);
 
 }
 .contact-container{

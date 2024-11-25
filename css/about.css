@@ -91,7 +91,7 @@ nav {
     /* Initially hidden to the left */
     width: 250px;
     height: 100%;
-    background-color: white;
+    background-color: var(--nav-bg);
     overflow-x: hidden;
     transition: left 0.3s;
     z-index: 999;

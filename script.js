@@ -2,7 +2,7 @@
 const images = document.querySelectorAll('img');
 images.forEach(function (img) {
     img.addEventListener('error', function () {
-        img.src = '../images/default_image.jpg';  // Provide a path to a default image
+        img.src = 'images/default_image.jpg';  // Provide a path to a default image
         img.alt = 'Default Image';
     });
 });
